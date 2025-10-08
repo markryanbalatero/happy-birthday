@@ -286,8 +286,9 @@ body {
 
 .eight-and-half {
   position: relative;
-  top: -50vh;
+  top: -30vh;
   z-index: 1;
+  margin-bottom: 15vh;
 }
 
 .memories {
@@ -304,9 +305,30 @@ body {
 .memories-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 15px;
+  flex-wrap: nowrap;
   margin-bottom: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.memories-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.memories-container::-webkit-scrollbar-track {
+  background: rgba(255, 105, 180, 0.1);
+  border-radius: 10px;
+}
+
+.memories-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 105, 180, 0.5);
+  border-radius: 10px;
+}
+
+.memories-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 105, 180, 0.7);
 }
 
 .memory-card {
@@ -315,6 +337,8 @@ body {
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  flex: 0 0 auto;
+  min-width: 200px;
 }
 
 .memory-card:hover {
@@ -406,8 +430,19 @@ body {
   }
 
   /* Memories Section Mobile Responsive */
+  .eight-and-half {
+    top: 0vh;
+    margin-bottom: 25vh;
+    position: static;
+    margin-top: -10vh;
+  }
+
   .memories {
-    padding: 15px;
+    padding: 20px 15px 50px 15px;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    margin: 10px;
   }
 
   .memories-title {
@@ -416,45 +451,64 @@ body {
   }
 
   .memories-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px 5px 30px 5px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .memory-card {
-    width: 100%;
-    max-width: 280px;
+    flex: 0 0 auto;
+    min-width: 180px;
+    width: 180px;
   }
 
   .memory-img {
-    width: 100%;
-    height: 300px;
-    max-width: 280px;
+    width: 180px;
+    height: 240px;
   }
 
   .memories-caption {
     font-size: 1.4rem;
     margin-top: 15px;
+    margin-bottom: 30px;
     padding: 0 10px;
   }
 }
 
 /* Additional responsive breakpoints for memories */
 @media screen and (max-width: 768px) {
+  .eight-and-half {
+    position: static;
+    margin: 20px 0 30vh 0;
+  }
+
+  .memories {
+    padding: 25px 15px 60px 15px;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin: 15px;
+  }
+
   .memories-container {
-    flex-direction: column;
-    gap: 15px;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 15px 5px 40px 5px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .memory-card {
-    width: 90%;
-    max-width: 320px;
-    margin: 0 auto;
+    flex: 0 0 auto;
+    min-width: 200px;
+    width: 200px;
   }
 
   .memory-img {
-    width: 100%;
-    height: 280px;
+    width: 200px;
+    height: 260px;
   }
 
   .memories-title {
@@ -463,12 +517,30 @@ body {
 
   .memories-caption {
     font-size: 1.5rem;
+    margin-bottom: 40px;
   }
 }
 
 @media screen and (max-width: 480px) {
+  .eight-and-half {
+    position: static;
+    margin: 30px 0 40vh 0;
+  }
+
   .memories {
-    padding: 10px;
+    padding: 30px 10px 80px 10px;
+    min-height: 110vh;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .memories-container {
+    gap: 8px;
+    padding: 10px 3px 50px 3px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .memories-title {
@@ -477,17 +549,20 @@ body {
   }
 
   .memory-card {
-    width: 95%;
-    max-width: 300px;
+    flex: 0 0 auto;
+    min-width: 160px;
+    width: 160px;
   }
 
   .memory-img {
-    height: 250px;
+    width: 160px;
+    height: 220px;
   }
 
   .memories-caption {
     font-size: 1.2rem;
     margin-top: 10px;
+    margin-bottom: 50px;
   }
 }
 
