@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "December",
   ];
 
-  const targetDay = 7;
-  const targetMonthIndex = 11; // December
-  const targetYear = 2024;
-  const birthYear = 2001;
+  const targetDay = 8;
+  const targetMonthIndex = 9; // December
+  const targetYear = 2025;
+  const birthYear = 2004;
 
   let currentDay = 1;
   let currentMonthIndex = 0;
@@ -281,7 +281,7 @@ const animationTimeline = () => {
     })
     .staggerFrom(
       ".wish-hbd span",
-      0.7,
+      0.5,
       {
         opacity: 0,
         y: -50,
@@ -290,11 +290,11 @@ const animationTimeline = () => {
         skewX: "30deg",
         ease: Elastic.easeOut.config(1, 0.5),
       },
-      0.1
+      0.08
     )
     .staggerFromTo(
       ".wish-hbd span",
-      0.7,
+      0.5,
       {
         scale: 1.4,
         rotationY: 150,
@@ -305,12 +305,12 @@ const animationTimeline = () => {
         color: "#ff69b4",
         ease: Expo.easeOut,
       },
-      0.1,
+      0.08,
       "party"
     )
     .from(
       ".wish h5",
-      0.5,
+      0.4,
       {
         opacity: 0,
         y: 10,
@@ -320,22 +320,47 @@ const animationTimeline = () => {
     )
     .staggerTo(
       ".eight svg",
-      1.5,
+      1.2,
       {
         visibility: "visible",
         opacity: 0,
         scale: 80,
-        repeat: 3,
-        repeatDelay: 1.4,
+        repeat: 2,
+        repeatDelay: 1.0,
       },
-      0.3
+      0.25
     )
     .to(".six", 0.5, {
       opacity: 0,
       y: 30,
       zIndex: "-1",
     })
-    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
+    .from(".eight-and-half", 0.8, {
+      opacity: 0,
+      y: 50,
+      scale: 0.8,
+    }, "+=1")
+    .from(".memories-title", 0.6, {
+      opacity: 0,
+      y: -30,
+      scale: 0.8,
+    })
+    .staggerFrom(".memory-img", 0.7, {
+      opacity: 0,
+      scale: 0.3,
+      rotation: 180,
+      y: 100,
+    }, 0.3)
+    .from(".memories-caption", 0.5, {
+      opacity: 0,
+      y: 20,
+    })
+    .to(".eight-and-half", 0.8, {
+      opacity: 0,
+      y: -50,
+      scale: 0.8,
+    }, "+=5")
+    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2, "+=0.5")
     .to(
       ".last-smile",
       0.5,
